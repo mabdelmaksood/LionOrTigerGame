@@ -62,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
         int tag = Integer.parseInt(myImg.getTag().toString());
         choices[tag]=myPlayer;
          int[][] winCases= new int[][]{{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}};
-
+         myImg.setClickable(false);
         if (myPlayer==Player.ONE) {
             ImageView image = (ImageView) myImg;
             image.setTranslationX(2000);
             image.setImageResource(R.drawable.tiger);
             image.animate().translationX(0).alpha(1).rotation(360).setDuration(1000);
             myPlayer=Player.TWO;
-            Toast.makeText(getApplicationContext(),"Player Two's Turn",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"Player Two's Turn",Toast.LENGTH_SHORT).show();
 
         }else{
             ImageView image = (ImageView) myImg;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             image.setImageResource(R.drawable.lion);
             image.animate().translationX(0).alpha(1).rotation(360).setDuration(1000);
             myPlayer=Player.ONE;
-            Toast.makeText(getApplicationContext(),"Player One's Turn",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"Player One's Turn",Toast.LENGTH_SHORT).show();
 
         }
         for(int[] a :winCases){
@@ -92,6 +92,17 @@ public class MainActivity extends AppCompatActivity {
                 img7.animate().alpha(0).setDuration(500);
                 img8.animate().alpha(0).setDuration(500);
                 img9.animate().alpha(0).setDuration(500);
+                img1.setClickable(true);
+                img2.setClickable(true);
+                img3.setClickable(true);
+                img4.setClickable(true);
+                img5.setClickable(true);
+                img6.setClickable(true);
+                img7.setClickable(true);
+                img8.setClickable(true);
+                img9.setClickable(true);
+                choices=new Player[9];
+                myPlayer=Player.ONE;
                 //w AlertDialog.Builder(getApplicationContext()).setTitle("Player "+choices[a[0]]+" wins").setMessage("Player "+choices[a[0]]+" wins").show();
             }
         }
